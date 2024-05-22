@@ -1,0 +1,36 @@
+  WEBLOGIC SILENT_DOMAIN_CREATION
+-----------------------------------------
+--> FIRST INSTALLATION WEBLOGIC 
+
+--> GO TO THIS PATH
+path :/home/oracle/Oracle/Middleware/Oracle_home/oracle_common/common/bin
+--> CREATE ONE FILE WITH EXTENSION OF PY 
+silent.py (inside file write down this)
+
+------------------------------------------------------------------------------------------------
+#!/usr/bin/python
+import os, sys
+readTemplate('/home/oracle/Oracle/Middleware/Oracle_home/wlserver/common/templates/wls/wls.jar')
+cd('/Security/base_domain/User/weblogic')
+cmo.setPassword('sarasu10')
+cd('/Server/AdminServer')
+cmo.setName('AdminServer')
+cmo.setListenPort(7001)
+cmo.setListenAddress('192.168.3.52')
+writeDomain('/home/oracle/Oracle/Middleware/Oracle_home/user_projcets/domains/base_domain1')
+closeTemplate()
+exit()
+~   
+---------------------------------------------------------------------------------------------------
+
+--> RUN THIS COMMAND ./commEnv.sh
+       next
+--> RUN THIS COMMAND 
+   ./wlst.sh /home/oracle/Oracle/Middleware/Oracle_home/oracle_common/common/bin/silent.py
+
+
+
+
+
+
+
