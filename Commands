@@ -10,3 +10,204 @@ run this command
 
 Example : ./orapki wallet display -wallet /home/bandaru/wallet
 
+
+In WebLogic Server, Admin Mode and Suspend Mode are operational states that you can place a server into for maintenance or administrative purposes. Each mode serves different functions and is used in different scenarios. Here's an explanation of both modes:
+Admin Mode
+
+Admin Mode is a server state where the server is started but not available for normal application traffic. Instead, it is available only for administrative operations and maintenance tasks. In Admin Mode:
+
+    Deployment and Configuration Changes:
+        Administrators can deploy or undeploy applications, and make configuration changes without affecting the users.
+
+    Limited Access:
+        Only users with administrative privileges can access the server. Regular users cannot access the applications deployed on the server.
+
+    Diagnostic and Maintenance Tasks:
+        Ideal for performing diagnostic and maintenance tasks such as testing configuration changes, upgrading applications, or troubleshooting issues without affecting the production environment.
+
+    Application Lifecycle Management:
+        Applications can be deployed in an administration mode where they are active but not serving requests. This allows administrators to configure or test applications before making them available to users.
+
+How to Enter Admin Mode
+
+You can start a server in Admin Mode using the command line or through the WebLogic Administration Console.
+
+Using Command Line:
+
+sh
+
+java -Dweblogic.management.startupMode=ADMIN -Dweblogic.Name=ServerName -Dweblogic.Domain=DomainName weblogic.Server
+
+Using WLST:
+
+python
+
+start('ServerName', 'Server', block='true', startMode='admin')
+
+
+============================================================================================================================
+
+
+In WebLogic Server, Admin Mode and Suspend Mode are operational states that you can place a server into for maintenance or administrative purposes. Each mode serves different functions and is used in different scenarios. Here's an explanation of both modes:
+Admin Mode
+
+Admin Mode is a server state where the server is started but not available for normal application traffic. Instead, it is available only for administrative operations and maintenance tasks. In Admin Mode:
+
+    Deployment and Configuration Changes:
+        Administrators can deploy or undeploy applications, and make configuration changes without affecting the users.
+
+    Limited Access:
+        Only users with administrative privileges can access the server. Regular users cannot access the applications deployed on the server.
+
+    Diagnostic and Maintenance Tasks:
+        Ideal for performing diagnostic and maintenance tasks such as testing configuration changes, upgrading applications, or troubleshooting issues without affecting the production environment.
+
+    Application Lifecycle Management:
+        Applications can be deployed in an administration mode where they are active but not serving requests. This allows administrators to configure or test applications before making them available to users.
+
+How to Enter Admin Mode
+
+You can start a server in Admin Mode using the command line or through the WebLogic Administration Console.
+
+Using Command Line:
+
+sh
+
+java -Dweblogic.management.startupMode=ADMIN -Dweblogic.Name=ServerName -Dweblogic.Domain=DomainName weblogic.Server
+
+Using WLST:
+
+python
+
+start('ServerName', 'Server', block='true', startMode='admin')
+
+Suspend Mode
+
+Suspend Mode is used to temporarily halt server operations while still keeping the server running. This is typically used for controlled shutdowns or to gracefully remove a server from a cluster for maintenance. In Suspend Mode:
+
+    Graceful Shutdown:
+        The server stops accepting new requests but continues to process in-flight requests. This ensures that ongoing transactions are completed without abrupt interruption.
+
+    Administrative Tasks:
+        The server remains running and can be managed by administrators. Once all requests are processed, the server can be shut down or restarted.
+
+    Health Checks and Maintenance:
+        Useful for performing health checks or maintenance tasks that require no new requests to be processed but do not necessitate a complete server shutdown.
+
+    Cluster Management:
+        When part of a cluster, Suspend Mode allows you to safely remove a server from the cluster, perform the necessary tasks, and then bring it back online without disrupting the entire cluster.
+
+How to Enter Suspend Mode
+
+You can suspend a server using the WebLogic Administration Console or WLST.
+
+Using the WebLogic Administration Console:
+
+    Go to Environment -> Servers.
+    Select the server you want to suspend.
+    In the Control tab, click on Suspend and confirm the action.
+
+Using WLST:
+
+python
+
+connect('admin_username', 'admin_password', 't3://admin_server_host:admin_server_port')
+edit()
+startEdit()
+shutdown('ManagedServerName', 'Server', ignoreSessions='true', force='false')
+save()
+activate()
+disconnect()
+
+======================================================================================================
+
+
+
+
+In WebLogic Server, Admin Mode and Suspend Mode are operational states that you can place a server into for maintenance or administrative purposes. Each mode serves different functions and is used in different scenarios. Here's an explanation of both modes:
+Admin Mode
+
+Admin Mode is a server state where the server is started but not available for normal application traffic. Instead, it is available only for administrative operations and maintenance tasks. In Admin Mode:
+
+    Deployment and Configuration Changes:
+        Administrators can deploy or undeploy applications, and make configuration changes without affecting the users.
+
+    Limited Access:
+        Only users with administrative privileges can access the server. Regular users cannot access the applications deployed on the server.
+
+    Diagnostic and Maintenance Tasks:
+        Ideal for performing diagnostic and maintenance tasks such as testing configuration changes, upgrading applications, or troubleshooting issues without affecting the production environment.
+
+    Application Lifecycle Management:
+        Applications can be deployed in an administration mode where they are active but not serving requests. This allows administrators to configure or test applications before making them available to users.
+
+How to Enter Admin Mode
+
+You can start a server in Admin Mode using the command line or through the WebLogic Administration Console.
+
+Using Command Line:
+
+sh
+
+java -Dweblogic.management.startupMode=ADMIN -Dweblogic.Name=ServerName -Dweblogic.Domain=DomainName weblogic.Server
+
+Using WLST:
+
+python
+
+start('ServerName', 'Server', block='true', startMode='admin')
+
+Suspend Mode
+
+Suspend Mode is used to temporarily halt server operations while still keeping the server running. This is typically used for controlled shutdowns or to gracefully remove a server from a cluster for maintenance. In Suspend Mode:
+
+    Graceful Shutdown:
+        The server stops accepting new requests but continues to process in-flight requests. This ensures that ongoing transactions are completed without abrupt interruption.
+
+    Administrative Tasks:
+        The server remains running and can be managed by administrators. Once all requests are processed, the server can be shut down or restarted.
+
+    Health Checks and Maintenance:
+        Useful for performing health checks or maintenance tasks that require no new requests to be processed but do not necessitate a complete server shutdown.
+
+    Cluster Management:
+        When part of a cluster, Suspend Mode allows you to safely remove a server from the cluster, perform the necessary tasks, and then bring it back online without disrupting the entire cluster.
+
+How to Enter Suspend Mode
+
+You can suspend a server using the WebLogic Administration Console or WLST.
+
+Using the WebLogic Administration Console:
+
+    Go to Environment -> Servers.
+    Select the server you want to suspend.
+    In the Control tab, click on Suspend and confirm the action.
+
+Using WLST:
+
+python
+
+connect('admin_username', 'admin_password', 't3://admin_server_host:admin_server_port')
+edit()
+startEdit()
+shutdown('ManagedServerName', 'Server', ignoreSessions='true', force='false')
+save()
+activate()
+disconnect()
+
+Summary
+
+Admin Mode: The server is started and available only for administrative tasks, not for serving applicatio
+n traffic. Useful for deployments, configurations, and diagnostics.
+
+uspend Mode: The server stops accepting new requests but continues processing ongoing requests. 
+Ideal for performing maintenance tasks without shutting down the server completely.
+
+
+
+
+
+
+
+
+
