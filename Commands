@@ -1,1 +1,12 @@
+Commands for weblogic 
+-------------------------------------------
+How can check the ssl certficate webserver level 
+Go to this path 
+--------------
+cd /home/bandaru/Oracle/Middleware/Oracle_home/oracle_common/bin 
+run this command
+-----------------
+ ---> orapki wallet display -wallet /path/to/wallet
+
+Example : ./orapki wallet display -wallet /home/bandaru/wallet
 
